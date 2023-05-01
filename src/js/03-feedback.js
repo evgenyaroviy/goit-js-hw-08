@@ -12,23 +12,22 @@ messageRef.addEventListener('input', onMessageInput)
 formRef.addEventListener('submit', onFormSubmit);
 
 function onMailInput(e) {
-    const email = e.target.value;
+    // const email = e.target.value;
     
-    localStorage.setItem('email', email)
+    localStorage.setItem('email', e.target.value)
+    
 };
 function onMessageInput(e) {
-    const message = e.target.value;
+    // const message = e.target.value;
     
-    localStorage.setItem('message', message)
+    localStorage.setItem('message', e.target.value)
 };
 function onFormSubmit(e) {
     e.preventDefault();
-    console.log(`${onMailInput()}, ${onMessageInput()}`)
+    const userObjact = `${localStorage.getItem('email')}, ${localStorage.getItem('message')}`;
+    console.log(userObjact)
     e.target.reset();
 };
 
 
-localStorage.setItem(LOCALSTORAGE_KEY, 2);
 
-const x = localStorage.getItem(LOCALSTORAGE_KEY)
-console.log(x)
